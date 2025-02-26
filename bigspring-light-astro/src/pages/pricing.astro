@@ -1,0 +1,13 @@
+---
+import Base from "@/layouts/Base.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const entry = (await getEntry(
+  "pricing",
+  "-index"
+)) as CollectionEntry<"pricing">;
+const { title, description, plans, call_to_action } = entry.data;
+---
+
+<Base title={title} description={description} />
